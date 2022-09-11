@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "367996715898",
+    "project_id": "flutter-huislaw-mynotes",
+    "storage_bucket": "flutter-huislaw-mynotes.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:367996715898:android:57be588e008ef531f70cc3",
+        "android_client_info": {
+          "package_name": "com.huisheng.mynotes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "367996715898-nh39f4cfp48pbtu5ldragli0hjc6v2jh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsdPji_W7fRRj_hqYrzGV18UCi59dTC5g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "367996715898-nh39f4cfp48pbtu5ldragli0hjc6v2jh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
