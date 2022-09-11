@@ -29,6 +29,13 @@
             {
               "client_id": "367996715898-nh39f4cfp48pbtu5ldragli0hjc6v2jh.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "367996715898-33s966b99fqm2r4cqadklafmnir35jof.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.huisheng.mynotes"
+              }
             }
           ]
         }
