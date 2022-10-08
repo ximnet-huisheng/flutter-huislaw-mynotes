@@ -42,16 +42,19 @@ class Homepage extends StatelessWidget {
                 //   }
                 // });
 
-                //final user = FirebaseAuth.instance.currentUser;
-                //if (user?.emailVerified ?? false) {
-                //  print('you are verified');
-                //  print(user);
-                //  return const Text('dones');
-                //} else {
-                //print('need to verify email first.');
-                return const LoginView();
-              //return const VerifyEmailView();
-              //}
+                final user = FirebaseAuth.instance.currentUser;
+                if (user != null) {
+                  ///  if (user?.emailVerified ?? false) {
+                  if (user.emailVerified) {
+                    print('you are verified');
+                  } else {
+                    return const VerifyEmailView();
+                  }
+                } else {
+                  return const LoginView();
+                }
+
+                return const Text('dones');
 
               //break;
               default:
