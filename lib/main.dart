@@ -50,7 +50,7 @@ class Homepage extends StatelessWidget {
             if (user != null) {
               ///  if (user?.emailVerified ?? false) {
               if (user.emailVerified) {
-                print('you are verified 2');
+                print('you are verified s2');
                 return const NotesView();
               } else {
                 return const VerifyEmailView();
@@ -87,8 +87,18 @@ class _NotesViewState extends State<NotesView> {
         title: const Text('Main UIs'),
         actions: [
           PopupMenuButton<MenuAction>(
-            onSelected: (value) {
-              devtools.log(value.toString());
+            onSelected: (value) async {
+              switch (value) {
+                case MenuAction.logout:
+                  final shouldLogout = await showLogOutDialog(context);
+                  if (shouldLogout) {
+                    await FirebaseAuth.instance.signOut();
+                    Navigator.of(context)
+                        .pushNamedAndRemoveUntil("/login/", (_) => false);
+                  }
+                  devtools.log(shouldLogout.toString());
+                  break;
+              }
             },
             itemBuilder: (context) {
               return [
@@ -107,7 +117,7 @@ class _NotesViewState extends State<NotesView> {
 }
 
 Future<bool> showLogOutDialog(BuildContext context) {
-  showDialog(
+  return showDialog<bool>(
     context: context,
     builder: (context) {
       return AlertDialog(
@@ -115,15 +125,19 @@ Future<bool> showLogOutDialog(BuildContext context) {
         content: const Text('Are you sure you want to sign out?'),
         actions: [
           TextButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).pop(false);
+            },
             child: const Text('cancel'),
           ),
           TextButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).pop(true);
+            },
             child: const Text('logout'),
           ),
         ],
       );
     },
-  );
+  ).then((value) => value ?? false);
 }
