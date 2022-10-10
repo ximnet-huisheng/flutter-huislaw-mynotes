@@ -5,6 +5,7 @@ import 'package:mynotes/views/login_view.dart';
 import 'package:mynotes/views/register_view.dart';
 import 'firebase_options.dart';
 import 'views/verify_email.dart';
+import 'dart:developer' as devtools show log;
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -86,7 +87,9 @@ class _NotesViewState extends State<NotesView> {
         title: const Text('Main UIs'),
         actions: [
           PopupMenuButton<MenuAction>(
-            onSelected: (value) => {},
+            onSelected: (value) {
+              devtools.log(value.toString());
+            },
             itemBuilder: (context) {
               return [
                 const PopupMenuItem<MenuAction>(
