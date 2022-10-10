@@ -38,10 +38,10 @@ class Homepage extends StatelessWidget {
           case ConnectionState.done:
             FirebaseAuth.instance.authStateChanges().listen((User? user) {
               if (user != null) {
-                print("user.uid");
-                print(user.uid);
+                devtools.log("user.uid");
+                devtools.log(user.uid);
               } else {
-                print("user.uid is null");
+                devtools.log("user.uid is null");
               }
             });
 
@@ -50,7 +50,7 @@ class Homepage extends StatelessWidget {
             if (user != null) {
               ///  if (user?.emailVerified ?? false) {
               if (user.emailVerified) {
-                print('you are verified s2');
+                devtools.log('you are verified s2');
                 return const NotesView();
               } else {
                 return const VerifyEmailView();
