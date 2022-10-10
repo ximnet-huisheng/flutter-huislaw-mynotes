@@ -11,6 +11,7 @@ void main() {
 
   runApp(MaterialApp(
     title: 'Flutter Demo',
+    debugShowCheckedModeBanner: false,
     theme: ThemeData(
       primarySwatch: Colors.blue,
     ),
@@ -34,21 +35,21 @@ class Homepage extends StatelessWidget {
       builder: (context, snapshot) {
         switch (snapshot.connectionState) {
           case ConnectionState.done:
-            // FirebaseAuth.instance.authStateChanges().listen((User? user) {
-            //   if (user != null) {
-            //     print("user.uid");
-            //     print(user.uid);
-            //   } else {
-            //     print("user.uid is null");
-            //   }
-            // });
+            FirebaseAuth.instance.authStateChanges().listen((User? user) {
+              if (user != null) {
+                print("user.uid");
+                print(user.uid);
+              } else {
+                print("user.uid is null");
+              }
+            });
 
             final user = FirebaseAuth.instance.currentUser;
-            //  print(user);
+
             if (user != null) {
               ///  if (user?.emailVerified ?? false) {
               if (user.emailVerified) {
-                //print('you are verified');
+                print('you are verified 2');
                 return const NotesView();
               } else {
                 return const VerifyEmailView();
@@ -82,7 +83,7 @@ class _NotesViewState extends State<NotesView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Main UIss'),
+        title: const Text('Main UIs'),
         actions: [
           PopupMenuButton<MenuAction>(
             onSelected: (value) => {},
